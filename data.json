@@ -1,0 +1,120 @@
+[
+    {
+      "Rid": 100001,
+      "password": "100001",
+      "name": "restaurant1",
+      "location": "Mulund",
+      "address": "near station ",
+      "zip": 400081,
+      "cuisines": "Indian Food"
+    },
+    {
+      "Rid": 100002,
+      "password": "100002",
+      "name": "restaurant2",
+      "location": "Mulund",
+      "address": "near college ",
+      "zip": 400081,
+      "cuisines": "Italian Food"
+    },
+    {
+      "Rid": 100003,
+      "password": "100003",
+      "name": "restaurant3",
+      "location": "Mulund",
+      "address": "near staion west ",
+      "zip": 400080,
+      "cuisines": "Italian Food"
+    },
+    {
+      "Rid": 100004,
+      "password": "100004",
+      "name": "restaurant4",
+      "location": "Mulund",
+      "address": "near west college ",
+      "zip": 400080,
+      "cuisines": "Italian Food"
+    },
+    {
+      "Rid": 100005,
+      "password": "100005",
+      "name": "restaurant5",
+      "location": "Anderi",
+      "address": "near station ",
+      "zip": 400051,
+      "cuisines": "American Food"
+    },
+    {
+      "Rid": 100006,
+      "password": "100006",
+      "name": "restaurant6",
+      "location": "Anderi",
+      "address": "near college ",
+      "zip": 400051,
+      "cuisines": "American Food"
+    },
+    {
+      "Rid": 100007,
+      "password": "100007",
+      "name": "restaurant7",
+      "location": "Anderi",
+      "address": "near stion west ",
+      "zip": 400051,
+      "cuisines": "Indian Food"
+    },
+    {
+      "Rid": 100008,
+      "password": "100008",
+      "name": "restaurant8",
+      "location": "dadar",
+      "address": "near station west ",
+      "zip": 400002,
+      "cuisines": "Indian Food"
+    },
+    {
+      "Rid": 100009,
+      "password": "100009",
+      "name": "restaurant9",
+      "location": "dadar",
+      "address": "near college west ",
+      "zip": 400002,
+      "cuisines": "American Food"
+    },
+    {
+      "Rid": 100010,
+      "password": "100010",
+      "name": "restaurant10",
+      "location": "dadar",
+      "address": "near market ",
+      "zip": 400002,
+      "cuisines": "Indian Food"
+    },
+    {
+      "Rid": 100011,
+      "password": "100011",
+      "name": "restaurant11",
+      "location": "cst",
+      "address": "near market ",
+      "zip": 400002,
+      "cuisines": "Indian Food"
+    },
+    {
+      "Rid": 100012,
+      "password": "100012",
+      "name": "restaurant12",
+      "location": "cst",
+      "address": "near station ",
+      "zip": 400002,
+      "cuisines": "All kind of  Food"
+    },
+    {
+      "Rid": 100013,
+      "password": "100013",
+      "name": "restaurant13",
+      "location": "Vikroli",
+      "address": "near station ",
+      "zip": 400002,
+      "cuisines": "Italin  Food"
+     
+    }
+  ]
