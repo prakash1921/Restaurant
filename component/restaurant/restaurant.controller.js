@@ -180,4 +180,5 @@ exports.getRestaurant = async function (req, res, next) {
 
 //Run this function only once to  dumy restaurant data
 // to store int database collection
+//and commit function once executed
 // getdata();
