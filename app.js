@@ -30,7 +30,10 @@ app.use(function(req, res, next) {
 
 
 
- const mongoUrl='mongodb://localhost:27017/restaurant';
+//  const mongoUrl='mongodb://localhost:27017/restaurant';
+// const mongoUrl='mongodb+srv://sohamdb:soham123@electioncluster.u8osy.mongodb.net/restaurantdb';
+
+const mongoUrl='mongodb+srv://sohamdb:soham123@electioncluster.u8osy.mongodb.net/restaurant';
 var conc = mongoose.connect(mongoUrl,
   (err)=>{
       if(err){

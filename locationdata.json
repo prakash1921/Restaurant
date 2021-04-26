@@ -1,0 +1,53 @@
+[{
+    "id":1,
+    "restaurant_name": "Jaipur Tea Stall",
+    "phone": 8798867812,
+    "address": "Near hawamahal, Jaipur, Rajasthan ",
+    "location": {
+      "type": "Point",
+      "coordinates": [19.172267,26.922070]
+    }
+  },
+  {
+    "id":2,
+    "restaurant_name": "Mulund",
+    "phone": 8798867812,
+    "address": "Near Mulund Statiton ",
+    "location": {
+      "type": "Point",
+      "coordinates": [19.175547,72.972099]
+    }
+  },
+  {
+    "id":3,
+    "restaurant_name": "Thane",
+    "phone": 7896541230,
+    "address": "Near Kisan Nagar 3 ",
+    "location": {
+      "type": "Point",
+      "coordinates": [19.186664,72.954189]
+    }
+  },
+  {
+    "id":4,
+    "restaurant_name": "McDonals",
+    "phone": 7896541230,
+    "address": "Near Mulund station ",
+    "location": {
+      "type": "Point",
+      "coordinates": [19.173212,72.956995]
+    }
+    
+        },
+        {
+            "id":5,
+            "restaurant_name": "Campus veg Treat",
+            "phone": 896521470,
+            "address": "Near Mulund highway ",
+            "location": {
+              "type": "Point",
+              "coordinates": [19.167912,72.961094]
+            }    
+        }
+
+]
