@@ -186,10 +186,20 @@ exports.getRestaurant = async function (req, res, next) {
                     }
                    
                 }else if(req.query.rt=='ALL'){
-                    console.log('bbbbw')
-                    var users = await restaurantModel.find({ locationName: { $regex: searchquery, $options: 'i' } });
+                    if(req.query.menuname==''){
+                        console.log('bbbbw')
+                        var users = await restaurantModel.find({ locationName: { $regex: searchquery, $options: 'i' } });
+                        res.status(200).json({ status: 200, data: users, message: "Succesfully Users searched" });
+                     
+                        } else{
+                            console.log('aaaaaaaaallllllllllla')
+                    var users = await restaurantModel.find({$and:[{ locationName: { $regex: searchquery, $options: 'i' } },{ menuList: { $elemMatch: { menuname: {$regex:req.query.menuname.toString(),$options:'i' }} } }]})
+                    //.sort({'menuList.cost':-1});
                     res.status(200).json({ status: 200, data: users, message: "Succesfully Users searched" });
-                 
+                    
+    
+                        }
+                    
                 }
                 else{
                     console.log('bbbbw')
@@ -456,42 +466,111 @@ function getlocationresult(data, cb) {
     var menuname=data.menuname;
     console.log('lllll',data)
     if(rating=='ALL' ){
+        if(menuname==''){
+            restaurantModel.aggregate([
+                {
+                    $geoNear: {
+                        near: {
+                            type: "Point",
+                            coordinates: [Number(lat), Number(lng)],
         
-        console.log('allllllll')
-        restaurantModel.aggregate([
-            {
-                $geoNear: {
-                    near: {
-                        type: "Point",
-                        coordinates: [Number(lat), Number(lng)],
-    
-                    },
-                    distanceField: "dist.calculated",
-                    includeLocs: "dist.location",
-                    //  maxDistance: 2000000,
-                    // distanceMultiplier: 1 / 1000,  // divide by 1000 to covert meters to kilometers
-                    // maxDistance: 200 * 1000,  // 200 km
-                    spherical: true,
-                    // query:{ rating:{$cond: { if: {  "rating": 'ALL' }, then:{locationName:locationname.toString()}, else:'' }}}
-    // query:{rating:Number(rating)}
-    // query:{$in:[{rating:Number(rating)},{locationName:locationname.toString()}]}
+                        },
+                        distanceField: "dist.calculated",
+                        includeLocs: "dist.location",
+                        //  maxDistance: 2000000,
+                        // distanceMultiplier: 1 / 1000,  // divide by 1000 to covert meters to kilometers
+                        // maxDistance: 200 * 1000,  // 200 km
+                        spherical: true,
+                        // query:{$in:[{rating:Number(rating)},{locationName:locationname.toString()}]}
+        
+                    }
+                },
+                 {
+                    $match: {$and:[{locationName:locationname.toString()}]  }
+                },
+        
+                { $sort: { "dist.calculated": 1 } }
+            ], (err, res) => {
+                if (err) {
+                    cb(err, null)
+                    // next(err);
+                    // return;
+                } else {
+                    cb(null, res)
                 }
-            },
-            
-             {
-                $match: {$and:[{locationName: locationname.toString()}]  }
-            },
-    
-            { $sort: { "dist.calculated": 1 } }
-        ], (err, res) => {
-            if (err) {
-                cb(err, null)
-                // next(err);
-                // return;
-            } else {
-                cb(null, res)
-            }
-        })
+            })
+        }
+         if(menuname=='undefined'){
+            restaurantModel.aggregate([
+                {
+                    $geoNear: {
+                        near: {
+                            type: "Point",
+                            coordinates: [Number(lat), Number(lng)],
+        
+                        },
+                        distanceField: "dist.calculated",
+                        includeLocs: "dist.location",
+                        //  maxDistance: 2000000,
+                        // distanceMultiplier: 1 / 1000,  // divide by 1000 to covert meters to kilometers
+                        // maxDistance: 200 * 1000,  // 200 km
+                        spherical: true,
+                        // query:{$in:[{rating:Number(rating)},{locationName:locationname.toString()}]}
+        
+                    }
+                },
+                 {
+                    $match: {$and:[{locationName:locationname.toString()}]  }
+                },
+        
+                { $sort: { "dist.calculated": 1 } }
+            ], (err, res) => {
+                if (err) {
+                    cb(err, null)
+                    // next(err);
+                    // return;
+                } else {
+                    cb(null, res)
+                }
+            })
+        }
+        console.log('allllllll')
+        if(menuname!='' && menuname!=undefined){
+            restaurantModel.aggregate([
+                {
+                    $geoNear: {
+                        near: {
+                            type: "Point",
+                            coordinates: [Number(lat), Number(lng)],
+        
+                        },
+                        distanceField: "dist.calculated",
+                        includeLocs: "dist.location",
+                        //  maxDistance: 2000000,
+                        // distanceMultiplier: 1 / 1000,  // divide by 1000 to covert meters to kilometers
+                        // maxDistance: 200 * 1000,  // 200 km
+                        spherical: true,
+                        // query:{$in:[{rating:Number(rating)},{locationName:locationname.toString()}]}
+        
+                    }
+                },
+                 {
+                    $match: {$and:[{locationName:locationname.toString()},{ menuList: { $elemMatch: { menuname: {$regex:menuname.toString(),$options:'i' }} } }]  }
+                   
+                },
+        
+                { $sort: { "dist.calculated": 1 } }
+            ], (err, res) => {
+                if (err) {
+                    cb(err, null)
+                    // next(err);
+                    // return;
+                } else {
+                    cb(null, res)
+                }
+            })
+        }
+       
     } 
     else if(rating!='ALL'){
         console.log('alrr')
